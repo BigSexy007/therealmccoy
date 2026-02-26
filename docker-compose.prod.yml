@@ -1,0 +1,14 @@
+services:
+  app:
+    image: ghcr.io/${GITHUB_REPOSITORY:-therealmccoy}:latest
+    build:
+      context: .
+      target: prod
+    ports:
+      - "3000:3000"
+    volumes: []
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    restart: unless-stopped
